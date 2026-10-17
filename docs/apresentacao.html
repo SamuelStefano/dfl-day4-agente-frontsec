@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DFL/ Day 4 · P2 Front Security · agente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0c0b0a; --surface: #161412; --surface-2: #1e1b18; --line: #2c2824;
+    --ink: #f4ede2; --ink-2: #b9b0a3; --ink-3: #7d756b;
+    --brand: #E07A4A; --brand-soft: rgba(224,122,74,.12); --ok: #7fbf8a; --warn: #e2b04a;
+    --display: "Barlow Condensed", sans-serif; --body: "Inter", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-snap-type: y proximity; }
+  body { background: var(--bg); color: var(--ink); font: 400 17px/1.55 var(--body); -webkit-font-smoothing: antialiased; }
+  section { min-height: 100vh; padding: 9vh 7vw; display: flex; flex-direction: column; justify-content: center; scroll-snap-align: start; border-bottom: 1px solid var(--line); position: relative; }
+  .wrap { max-width: 1120px; width: 100%; margin: 0 auto; }
+  .kicker { font: 500 12px/1 var(--mono); letter-spacing: 1.4px; text-transform: uppercase; color: var(--brand); margin-bottom: 22px; }
+  h1, h2 { font-family: var(--display); font-weight: 700; letter-spacing: -1px; line-height: .95; }
+  h1 { font-size: clamp(56px, 9vw, 128px); letter-spacing: -2px; }
+  h2 { font-size: clamp(40px, 5.5vw, 72px); margin-bottom: 28px; }
+  .slash { color: var(--brand); margin: 0 .12em; }
+  .lead { font-size: clamp(18px, 1.8vw, 22px); color: var(--ink-2); max-width: 760px; }
+  .mono { font-family: var(--mono); }
+  .num { position: absolute; top: 4vh; right: 7vw; font: 500 12px var(--mono); color: var(--ink-3); letter-spacing: 1.4px; }
+
+  /* hero */
+  .hero h1 em { font-style: normal; color: var(--brand); }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 56px; }
+  .stat { background: var(--bg); padding: 24px 22px; }
+  .stat b { display: block; font: 700 46px/1 var(--display); color: var(--ink); }
+  .stat b.hi { color: var(--brand); }
+  .stat span { font: 500 11px var(--mono); letter-spacing: 1.2px; text-transform: uppercase; color: var(--ink-3); }
+
+  /* stages */
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 12px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 22px; }
+  .card .tag { font: 500 11px var(--mono); color: var(--brand); letter-spacing: 1.2px; }
+  .card h3 { font: 700 28px/1 var(--display); margin: 10px 0 10px; }
+  .card p { font-size: 14.5px; color: var(--ink-2); }
+  .arrow { color: var(--ink-3); font-family: var(--mono); font-size: 13px; margin-top: 18px; }
+  .limits { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+  .pill { font: 500 12.5px var(--mono); border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 8px 14px; color: var(--ink-2); }
+  .pill b { color: var(--ink); font-weight: 500; }
+
+  /* versus */
+  .vs { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 10px; }
+  .vs .card { padding: 28px; }
+  .vs .bad h3 { color: var(--ink-3); }
+  .vs .good { border-color: var(--brand); background: linear-gradient(180deg, var(--brand-soft), var(--surface) 70%); }
+  .vs ul { list-style: none; margin-top: 14px; }
+  .vs li { padding: 9px 0; border-top: 1px solid var(--line); font-size: 15px; color: var(--ink-2); display: flex; gap: 10px; }
+  .vs li::before { font-family: var(--mono); flex: none; }
+  .vs .bad li::before { content: "✕"; color: #c76a5a; }
+  .vs .good li::before { content: "✓"; color: var(--ok); }
+  .quote { margin-top: 34px; font: 600 clamp(24px, 3vw, 36px)/1.15 var(--display); letter-spacing: -.5px; }
+  .quote span { color: var(--brand); }
+
+  /* pipeline */
+  .pipe { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 14px; counter-reset: s; }
+  .step { position: relative; padding: 22px 18px 22px 0; }
+  .step::after { content: ""; position: absolute; top: 37px; left: 40px; right: 0; height: 1px; background: var(--line); }
+  .step:last-child::after { display: none; }
+  .dot { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--brand); display: grid; place-items: center; font: 500 12px var(--mono); color: var(--brand); background: var(--bg); position: relative; z-index: 1; }
+  .step.stop .dot { background: var(--brand); color: var(--bg); }
+  .step h4 { font: 700 22px/1.05 var(--display); margin: 16px 0 6px; }
+  .step code { font: 400 12px var(--mono); color: var(--brand); display: block; margin-bottom: 8px; word-break: break-all; }
+  .step p { font-size: 13.5px; color: var(--ink-2); }
+  .fallback { margin-top: 26px; border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; color: var(--ink-2); font-size: 15px; display: flex; gap: 16px; align-items: flex-start; }
+  .fallback b { color: var(--warn); font: 500 12px var(--mono); letter-spacing: 1.2px; white-space: nowrap; padding-top: 3px; }
+
+  /* coverage */
+  .cover { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .cover .card ul { list-style: none; margin-top: 8px; }
+  .cover li { font-size: 14px; color: var(--ink-2); padding: 5px 0 5px 16px; position: relative; }
+  .cover li::before { content: "/"; position: absolute; left: 0; color: var(--brand); font-family: var(--mono); }
+  .cover li code { font: 400 12.5px var(--mono); color: var(--ink); background: var(--surface-2); padding: 1px 6px; border-radius: 4px; }
+
+  /* result */
+  .big { display: flex; align-items: baseline; gap: 22px; flex-wrap: wrap; }
+  .big b { font: 700 clamp(110px, 18vw, 230px)/.85 var(--display); color: var(--brand); letter-spacing: -4px; }
+  .big span { font: 600 clamp(22px, 2.6vw, 32px)/1.1 var(--display); color: var(--ink-2); max-width: 420px; }
+  .bars { margin-top: 40px; display: grid; gap: 12px; max-width: 760px; }
+  .bar { display: grid; grid-template-columns: 210px 1fr 70px; align-items: center; gap: 16px; font: 500 13px var(--mono); color: var(--ink-2); }
+  .bar i { height: 10px; border-radius: 99px; background: var(--brand); display: block; }
+  .bar .track { background: var(--surface-2); border-radius: 99px; }
+  .bar em { font-style: normal; color: var(--ink); text-align: right; }
+
+  /* risks */
+  .risks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .risks .card { border-top: 2px solid var(--warn); }
+  .risks h3 { font-size: 24px; }
+  .next { margin-top: 30px; background: var(--surface); border: 1px solid var(--brand); border-radius: 10px; padding: 22px 26px; }
+  .next .tag { font: 500 11px var(--mono); color: var(--brand); letter-spacing: 1.2px; }
+  pre { margin-top: 12px; font: 400 14px/1.7 var(--mono); color: var(--ink); white-space: pre-wrap; }
+  pre .c { color: var(--ink-3); }
+
+  footer { padding: 34px 7vw; display: flex; justify-content: space-between; font: 500 12px var(--mono); letter-spacing: 1.2px; color: var(--ink-3); text-transform: uppercase; }
+  .logo { font: 700 22px var(--display); color: var(--ink); letter-spacing: -1px; }
+
+  @media (max-width: 900px) {
+    .stats, .grid4, .cover, .risks, .vs { grid-template-columns: 1fr 1fr; }
+    .pipe { grid-template-columns: 1fr; } .step::after { display: none; }
+    .bar { grid-template-columns: 130px 1fr 54px; }
+  }
+  @media (max-width: 600px) { .stats, .grid4, .cover, .risks, .vs { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <span class="num">01 / 07</span>
+  <div class="wrap">
+    <div class="kicker">DFL/ Day 4 · P2 · Front Security</div>
+    <h1>Modelo barato,<br><em>agente brabo.</em></h1>
+    <p class="lead" style="margin-top:28px">Como fazer o <span class="mono">deepseek-v4.1-flash</span> fechar a auditoria de segurança frontend com nota máxima, gastando centavos.</p>
+    <div class="stats">
+      <div class="stat"><b class="hi">80/80</b><span>testes passando</span></div>
+      <div class="stat"><b>10</b><span>casos · 5 ocultos</span></div>
+      <div class="stat"><b>45</b><span>regras automatizadas</span></div>
+      <div class="stat"><b>~6</b><span>chamadas do modelo</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="num">02 / 07</span>
+  <div class="wrap">
+    <div class="kicker">O problema</div>
+    <h2>Uma auditoria em 4 etapas encadeadas</h2>
+    <p class="lead">Antes do go-live de uma SPA, a agência entrega a auditoria. Um erro numa etapa cedo contamina o plano final.</p>
+    <div class="grid4" style="margin-top:34px">
+      <div class="card"><div class="tag">ETAPA 1</div><h3>Varredura</h3><p>11 regras (FS01–FS11) no build: chaves vazadas, JWT de servidor, XSS, eval, CSP, HSTS, source map.</p></div>
+      <div class="card"><div class="tag">ETAPA 2</div><h3>Dependências</h3><p>Árvore do lock resolvida como o Node, cruzada com avisos. Diz se a lib vulnerável chega ao navegador.</p></div>
+      <div class="card"><div class="tag">ETAPA 3</div><h3>Sessão</h3><p>Cookies do login ao logout, lidos como o navegador: Secure, HttpOnly, SameSite, prefixos, expiração.</p></div>
+      <div class="card"><div class="tag">ETAPA 4</div><h3>Plano</h3><p>Mesma causa vira um item. Aplica exceções por data, prioriza por fórmula e dá a nota final.</p></div>
+    </div>
+    <div class="limits">
+      <span class="pill">modelo <b>deepseek-v4.1-flash</b></span>
+      <span class="pill">tempo <b>600 s</b></span>
+      <span class="pill">custo <b>US$ 0,50</b></span>
+      <span class="pill">sem <b>internet</b></span>
+      <span class="pill">escreve fora de <b>out/</b> → <b>zero</b></span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="num">03 / 07</span>
+  <div class="wrap">
+    <div class="kicker">A sacada</div>
+    <h2>O modelo não calcula.<br>Ele roda.</h2>
+    <div class="vs">
+      <div class="card bad">
+        <h3>Agente que “pensa”</h3>
+        <ul>
+          <li>Lê arquivo minificado inteiro no contexto</li>
+          <li>Decodifica JWT e compara versão de cabeça</li>
+          <li>Erra um detalhe de regra e contamina o plano</li>
+          <li>Cada execução sai diferente</li>
+          <li>Estoura tempo e custo</li>
+        </ul>
+      </div>
+      <div class="card good">
+        <h3>Agente que roda o script</h3>
+        <ul>
+          <li>As 45 regras do README viram código testado</li>
+          <li>Mesma entrada → mesma saída, sempre</li>
+          <li>O modelo só executa 3 comandos e para</li>
+          <li>Termina em segundos, por centavos</li>
+          <li>Modelo fraco basta para acertar</li>
+        </ul>
+      </div>
+    </div>
+    <p class="quote">O harness carrega a inteligência.<br><span>O modelo só precisa obedecer.</span></p>
+  </div>
+</section>
+
+<section>
+  <span class="num">04 / 07</span>
+  <div class="wrap">
+    <div class="kicker">O fluxo do agente · AGENTS.md</div>
+    <h2>Três comandos e parar</h2>
+    <div class="pipe">
+      <div class="step"><div class="dot">1</div><h4>Resolver</h4><code>frontsec/solve.mjs</code><p>Lê todos os casos e escreve cada <span class="mono">out/&lt;caso&gt;.json</span>.</p></div>
+      <div class="step"><div class="dot">2</div><h4>Checar</h4><code>checar-saida/check.mjs</code><p>Formato exato e coerência de pontos, esforço e prioridade.</p></div>
+      <div class="step"><div class="dot">3</div><h4>Testar</h4><code>npx vitest run tests/public</code><p>Os testes públicos da própria task.</p></div>
+      <div class="step"><div class="dot">4</div><h4>Passou?</h4><code>sem edição à mão</code><p>Não reescreve saída, não commita, não lê o <span class="mono">dist/</span>.</p></div>
+      <div class="step stop"><div class="dot">■</div><h4>Para</h4><code>fim</code><p>Sobra tempo e orçamento.</p></div>
+    </div>
+    <div class="fallback"><b>SE FALHAR</b><span>O modelo copia o script para <span class="mono">/tmp</span>, acha a regra no README e corrige só aquela função. No máximo 3 ciclos. Nunca toca em <span class="mono">tests/</span>, <span class="mono">casos/</span> ou <span class="mono">.opencode/</span>.</span></div>
+  </div>
+</section>
+
+<section>
+  <span class="num">05 / 07</span>
+  <div class="wrap">
+    <div class="kicker">O que o script resolve</div>
+    <h2>Os detalhes que derrubam um LLM</h2>
+    <div class="cover">
+      <div class="card"><div class="tag">VARREDURA</div><ul>
+        <li>Chave só no formato exato · <code>pf_pub_</code> e placeholder não contam</li>
+        <li>JWT decodificado em base64url · <code>role</code> ausente também é crítico</li>
+        <li>XSS só com a fonte literal até o <code>;</code></li>
+        <li>CSP efetiva: <code>script-src</code>, senão <code>default-src</code></li>
+      </ul></div>
+      <div class="card"><div class="tag">DEPENDÊNCIAS</div><ul>
+        <li>Resolução subindo <code>node_modules</code>, com ciclo</li>
+        <li>Caminho mais curto, empate em ordem de texto</li>
+        <li><code>1.10.0 &gt; 1.9.0</code> · faixas com <code>||</code></li>
+        <li>Banner <code>/*! nome@versao</code> decide o navegador</li>
+      </ul></div>
+      <div class="card"><div class="tag">SESSÃO</div><ul>
+        <li>Caminho padrão do cookie: <code>/api/login → /api</code></li>
+        <li><code>Max-Age</code> vale mais que <code>Expires</code></li>
+        <li>Remoção só vale com a mesma identidade</li>
+        <li>Regras de <code>__Host-</code> e <code>__Secure-</code></li>
+      </ul></div>
+      <div class="card"><div class="tag">PLANO</div><ul>
+        <li>XSS dentro de lib vulnerável soma no item <code>dep:</code></li>
+        <li>Exceção: inexistente → crítica → vencida</li>
+        <li><code>⌊pontos × 10 ÷ esforço⌋</code> e desempates</li>
+        <li>Item crítico força nota <code>F</code></li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="num">06 / 07</span>
+  <div class="wrap">
+    <div class="kicker">Resultado</div>
+    <div class="big"><b>80/80</b><span>no gabarito da DFL, incluindo os 5 casos ocultos da final</span></div>
+    <div class="bars">
+      <div class="bar">formato · públicos<span class="track"><i style="width:100%"></i></span><em>20/20</em></div>
+      <div class="bar">exemplos · públicos<span class="track"><i style="width:100%"></i></span><em>20/20</em></div>
+      <div class="bar">casos ocultos<span class="track"><i style="width:100%"></i></span><em>40/40</em></div>
+      <div class="bar">tamanho do agente<span class="track"><i style="width:15%"></i></span><em>29 KB</em></div>
+    </div>
+    <p class="lead" style="margin-top:30px">O limite do agente é 200 KB. O script foi escrito só a partir do README e o gabarito foi usado apenas para conferir.</p>
+  </div>
+</section>
+
+<section>
+  <span class="num">07 / 07</span>
+  <div class="wrap">
+    <div class="kicker">Riscos e próximo passo</div>
+    <h2>O que ainda falta provar</h2>
+    <div class="risks">
+      <div class="card"><h3>Obediência</h3><p>O modelo barato pode reescrever <span class="mono">out/</span> à mão ou mexer fora dele. O AGENTS.md proíbe as duas coisas.</p></div>
+      <div class="card"><h3>Run real</h3><p>O script está provado. O agente rodando ponta a ponta com o DeepSeek ainda não.</p></div>
+      <div class="card"><h3>Casos novos</h3><p>Um caso fora do gabarito pode pegar um detalhe ambíguo do README, como o cookie sensível ou o banner.</p></div>
+    </div>
+    <div class="next">
+      <div class="tag">PARA FECHAR · META 3/3</div>
+<pre><span class="c"># clonar e rodar 3 vezes, igual ao runner</span>
+git clone https://github.com/SamuelStefano/dfl-day4-agente-frontsec && cd dfl-day4-agente-frontsec
+export OPENROUTER_API_KEY=...
+MODEL=openrouter/deepseek/deepseek-v4.1-flash evals/run-local.sh examples/frontsec-scan 3</pre>
+    </div>
+  </div>
+</section>
+
+<footer><span class="logo">DFL<span class="slash">/</span></span><span>day 4 · p2 · front security</span></footer>
+
+</body>
+</html>
