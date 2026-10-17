@@ -1,0 +1,41 @@
+{
+  "name": "atelie-boa-vista",
+  "lockfileVersion": 3,
+  "packages": {
+    "": {
+      "name": "atelie-boa-vista",
+      "version": "1.0.0",
+      "dependencies": {
+        "mascara-input": "^3.1.0",
+        "marcado": "^4.0.2",
+        "datas-br": "^1.10.0"
+      },
+      "devDependencies": {
+        "gerador-docs": "^2.0.0"
+      }
+    },
+    "node_modules/datas-br": {
+      "version": "1.10.0",
+      "license": "MIT"
+    },
+    "node_modules/gerador-docs": {
+      "version": "2.0.0",
+      "license": "MIT",
+      "dependencies": {
+        "mascara-input": "^2.2.0"
+      }
+    },
+    "node_modules/gerador-docs/node_modules/mascara-input": {
+      "version": "2.2.0",
+      "license": "MIT"
+    },
+    "node_modules/marcado": {
+      "version": "4.0.2",
+      "license": "MIT"
+    },
+    "node_modules/mascara-input": {
+      "version": "3.1.0",
+      "license": "MIT"
+    }
+  }
+}

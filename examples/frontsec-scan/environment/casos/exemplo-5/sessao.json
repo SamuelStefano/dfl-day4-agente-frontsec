@@ -1,0 +1,41 @@
+{
+  "host": "app.ipe.example",
+  "passos": [
+    {
+      "passo": "inicio",
+      "caminho": "/",
+      "momento": "2026-10-21T18:00:00Z",
+      "set_cookie": [
+        "preferencia_tema=escuro; Path=/; Secure; SameSite=Lax"
+      ]
+    },
+    {
+      "passo": "login",
+      "caminho": "/conta/entrar",
+      "momento": "2026-10-21T18:01:00Z",
+      "set_cookie": [
+        "sid=ipe-a81c; Domain=.ipe.example; Path=/; Secure; HttpOnly; SameSite=Lax",
+        "__Secure-auth_token=ipe-t01; Path=/; HttpOnly; SameSite=Strict; Max-Age=1209600",
+        "lembrar_sessao=1; Path=/; Secure; HttpOnly; SameSite=None; Expires=Sun, 20 Dec 2026 18:01:00 GMT; Max-Age=3600"
+      ]
+    },
+    {
+      "passo": "renovar",
+      "caminho": "/conta/renovar",
+      "momento": "2026-10-21T18:50:00Z",
+      "set_cookie": [
+        "sid=ipe-b92d; Domain=ipe.example; Path=/; Secure; SameSite=Lax"
+      ]
+    },
+    {
+      "passo": "logout",
+      "caminho": "/conta/sair",
+      "momento": "2026-10-21T19:00:00Z",
+      "set_cookie": [
+        "sid=; Domain=ipe.example; Path=/; Max-Age=0",
+        "__Secure-auth_token=; Path=/conta; Max-Age=0",
+        "aviso_saida=ok; Path=/; Secure; SameSite=Lax"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "host": "agenda.clinicasorriso.example",
+  "passos": [
+    {
+      "passo": "login",
+      "caminho": "/login",
+      "momento": "2026-10-22T09:00:00Z",
+      "set_cookie": [
+        "__Host-sid=cs-11aa; Secure; HttpOnly; SameSite=Lax",
+        "auth_lembrar=1; Path=/; Secure; HttpOnly; SameSite=None; Max-Age=86400; Expires=Wed, 20 Jan 2027 09:00:00 GMT"
+      ]
+    },
+    {
+      "passo": "logout",
+      "caminho": "/logout",
+      "momento": "2026-10-22T09:30:00Z",
+      "set_cookie": [
+        "__Host-sid=; Path=/; Secure; Max-Age=0"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "versoes": {
+    "agenda-ui": [
+      "2.9.0",
+      "2.10.0",
+      "2.11.0"
+    ],
+    "cliente-http": [
+      "1.8.0",
+      "1.9.0",
+      "2.0.0",
+      "2.1.0"
+    ],
+    "servidor-dev": [
+      "4.1.0",
+      "4.1.2"
+    ]
+  },
+  "avisos": [
+    {
+      "id": "AVF-2026-0301",
+      "pacote": "agenda-ui",
+      "faixa": ">=2.0.0 <2.10.0",
+      "severidade": "media",
+      "titulo": "horario de outro paciente aparece no calendario"
+    },
+    {
+      "id": "AVF-2026-0302",
+      "pacote": "cliente-http",
+      "faixa": "<2.0.0",
+      "severidade": "alta",
+      "titulo": "cabecalho de autorizacao enviado para outro dominio"
+    },
+    {
+      "id": "AVF-2026-0303",
+      "pacote": "servidor-dev",
+      "faixa": ">=4.0.0 <4.1.2",
+      "severidade": "critica",
+      "titulo": "servidor de desenvolvimento le arquivos fora da pasta"
+    }
+  ]
+}

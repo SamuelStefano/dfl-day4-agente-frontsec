@@ -1,0 +1,25 @@
+{
+  "data_auditoria": "2026-10-20",
+  "excecoes": [
+    {
+      "item": "hdr:FS09",
+      "motivo": "CSP nova entra junto com o checkout v2",
+      "expira_em": "2026-10-19"
+    },
+    {
+      "item": "cred:d5f20e84",
+      "motivo": "chave antiga, ja desativada",
+      "expira_em": "2026-12-31"
+    },
+    {
+      "item": "cod:FS06:index.html",
+      "motivo": "widget de chat troca de fornecedor hoje",
+      "expira_em": "2026-10-20"
+    },
+    {
+      "item": "dep:mascara-input@2.2.0",
+      "motivo": "so roda no gerador de documentacao",
+      "expira_em": "2027-03-31"
+    }
+  ]
+}

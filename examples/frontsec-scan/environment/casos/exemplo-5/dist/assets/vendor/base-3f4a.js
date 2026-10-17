@@ -1,0 +1,1 @@
+/*! player-video@2.0.0 | MIT */function v(s){return s}/*! estado-facil@4.1.0 | MIT */function e(x){return x}/*! eventos-mini@1.0.0 | MIT */function o(n){return n}/*! graficos-ipe@1.9.0 | MIT */function g(d){return d}/*! sanitiza-html@1.6.0 | MIT */function s(h){return h}export{v as player,e as estado,o as eventos,g as grafico,s as limpar};

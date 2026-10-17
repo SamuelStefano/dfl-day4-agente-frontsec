@@ -1,0 +1,81 @@
+{
+  "versoes": {
+    "editor-rico": [
+      "3.2.0",
+      "3.2.1",
+      "3.2.2",
+      "3.3.0"
+    ],
+    "sanitiza-html": [
+      "1.0.3",
+      "1.1.0",
+      "1.6.0"
+    ],
+    "player-video": [
+      "1.5.0",
+      "2.0.0"
+    ],
+    "estado-facil": [
+      "3.0.0",
+      "3.5.0",
+      "4.0.0",
+      "4.1.0"
+    ],
+    "formatador": [
+      "2.2.0",
+      "2.2.1",
+      "2.3.0"
+    ]
+  },
+  "avisos": [
+    {
+      "id": "AVF-2026-0501",
+      "pacote": "editor-rico",
+      "faixa": ">=3.0.0 <3.2.2",
+      "severidade": "alta",
+      "titulo": "XSS ao colar HTML no editor"
+    },
+    {
+      "id": "AVF-2026-0502",
+      "pacote": "editor-rico",
+      "faixa": ">=3.2.1 <3.3.0",
+      "severidade": "media",
+      "titulo": "XSS em tabela colada"
+    },
+    {
+      "id": "AVF-2026-0503",
+      "pacote": "sanitiza-html",
+      "faixa": "<1.1.0",
+      "severidade": "alta",
+      "titulo": "atributo onerror passa pelo filtro"
+    },
+    {
+      "id": "AVF-2026-0504",
+      "pacote": "player-video",
+      "faixa": ">=1.0.0",
+      "severidade": "critica",
+      "titulo": "legenda executa script; projeto abandonado"
+    },
+    {
+      "id": "AVF-2026-0505",
+      "pacote": "estado-facil",
+      "faixa": "<4.0.0",
+      "severidade": "alta",
+      "titulo": "estado de um usuario vaza para outro"
+    },
+    {
+      "id": "AVF-2026-0506",
+      "pacote": "formatador",
+      "faixa": ">=2.0.0 <2.2.1",
+      "severidade": "media",
+      "titulo": "arquivo grande trava o processo"
+    },
+    {
+      "id": "AVF-2026-0507",
+      "pacote": "formatador",
+      "faixa": "<=2.2.0",
+      "severidade": "baixa",
+      "titulo": "mensagem de erro mostra caminho local"
+    }
+  ]
+}

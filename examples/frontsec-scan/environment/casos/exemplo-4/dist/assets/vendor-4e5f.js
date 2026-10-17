@@ -1,0 +1,1 @@
+/*! graficos@5.1.0 | MIT */function g(d){return d}/*! cupom-ui@1.4.0 | MIT */function c(x){return x}/*! parser-url@1.1.0 | MIT */function p(u){return new URL(u)}/*! qr-gerador@3.0.1 | MIT */function q(t){return t}export{g as grafico,c as cupom,p as url,q as qr};

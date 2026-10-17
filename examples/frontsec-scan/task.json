@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "task": {
+    "name": "dfl/day4-frontsec-scan",
+    "version": "2",
+    "description": "Segurança frontend: auditoria completa antes do go-live em 4 etapas encadeadas — varredura do build e dos headers (11 regras), dependências vulneráveis no lock com avisos fictícios, cookies do fluxo de login/logout, e plano de correção priorizado com exceções e nota final.",
+    "authors": [
+      {
+        "name": "DFL"
+      }
+    ],
+    "keywords": [
+      "hackathon",
+      "seguranca",
+      "frontend",
+      "dependencias",
+      "cookies",
+      "regras"
+    ]
+  },
+  "metadata": {
+    "title": "Segurança frontend: auditoria completa antes do go-live",
+    "tags": {
+      "tools": [],
+      "concepts": [
+        "security",
+        "static-analysis",
+        "dependency-audit",
+        "business-rules"
+      ]
+    }
+  },
+  "instruction": "instruction.md",
+  "environment": {
+    "dir": "environment",
+    "install": [
+      "npm",
+      "ci",
+      "--include=dev",
+      "--no-audit",
+      "--no-fund",
+      "--ignore-scripts"
+    ],
+    "allow_internet": false,
+    "cpus": 2,
+    "memory_mb": 2048,
+    "tools": {
+      "builtin": [
+        "read",
+        "write",
+        "edit",
+        "bash",
+        "search",
+        "list",
+        "todo"
+      ],
+      "mcp": []
+    },
+    "run_egress": [
+      "model-gateway"
+    ],
+    "secrets": [],
+    "resources": {
+      "cpus": 2,
+      "memory_mb": 2048,
+      "pids": 512
+    }
+  },
+  "tests": {
+    "public": "tests/public",
+    "hidden": "tests/hidden"
+  },
+  "solution": {
+    "patch": "solution/solution.patch"
+  },
+  "editable_paths": [
+    "out/**"
+  ],
+  "protected_paths": [
+    "tests/**",
+    "casos/**",
+    "README.md",
+    "package.json",
+    "package-lock.json",
+    "vitest.config.*"
+  ],
+  "verifier": {
+    "cmd": [
+      "npx",
+      "vitest",
+      "run",
+      "{tests}",
+      "--reporter=json",
+      "--outputFile={report}"
+    ],
+    "report": "vitest-json",
+    "timeout_sec": 120
+  },
+  "agent": {
+    "timeout_sec": 600
+  },
+  "est_minutes": 45
+}

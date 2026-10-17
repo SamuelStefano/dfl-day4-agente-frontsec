@@ -1,0 +1,86 @@
+{
+  "name": "cursos-ipe",
+  "lockfileVersion": 3,
+  "packages": {
+    "": {
+      "name": "cursos-ipe",
+      "version": "1.0.0",
+      "dependencies": {
+        "editor-rico": "^3.2.0",
+        "player-video": "^2.0.0",
+        "graficos-ipe": "^1.9.0",
+        "estado-facil": "^4.1.0"
+      },
+      "devDependencies": {
+        "testador": "^7.0.0",
+        "servidor-dev": "^4.2.0"
+      }
+    },
+    "node_modules/editor-rico": {
+      "version": "3.2.0",
+      "license": "MIT",
+      "dependencies": {
+        "sanitiza-html": "^1.0.3"
+      }
+    },
+    "node_modules/editor-rico/node_modules/sanitiza-html": {
+      "version": "1.0.3",
+      "license": "MIT"
+    },
+    "node_modules/estado-facil": {
+      "version": "4.1.0",
+      "license": "MIT",
+      "dependencies": {
+        "eventos-mini": "^1.0.0"
+      }
+    },
+    "node_modules/eventos-mini": {
+      "version": "1.0.0",
+      "license": "MIT",
+      "dependencies": {
+        "estado-facil": "^4.1.0"
+      }
+    },
+    "node_modules/formatador": {
+      "version": "2.2.0",
+      "license": "MIT"
+    },
+    "node_modules/graficos-ipe": {
+      "version": "1.9.0",
+      "license": "MIT",
+      "dependencies": {
+        "sanitiza-html": "^1.6.0"
+      }
+    },
+    "node_modules/player-video": {
+      "version": "2.0.0",
+      "license": "MIT",
+      "dependencies": {
+        "estado-facil": "^4.1.0"
+      }
+    },
+    "node_modules/sanitiza-html": {
+      "version": "1.6.0",
+      "license": "MIT"
+    },
+    "node_modules/servidor-dev": {
+      "version": "4.2.0",
+      "license": "MIT",
+      "dependencies": {
+        "formatador": "^2.2.0"
+      }
+    },
+    "node_modules/testador": {
+      "version": "7.0.0",
+      "license": "MIT",
+      "dependencies": {
+        "estado-facil": "^3.0.0",
+        "formatador": "^2.2.0"
+      }
+    },
+    "node_modules/testador/node_modules/estado-facil": {
+      "version": "3.0.0",
+      "license": "MIT"
+    }
+  }
+}

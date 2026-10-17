@@ -1,0 +1,20 @@
+{
+  "data_auditoria": "2026-10-22",
+  "excecoes": [
+    {
+      "item": "dep:servidor-dev@4.1.0",
+      "motivo": "so roda na maquina do desenvolvedor",
+      "expira_em": "2027-01-31"
+    },
+    {
+      "item": "cod:FS07:assets/main-7c1e.js",
+      "motivo": "migracao para cookie prevista para setembro",
+      "expira_em": "2026-09-30"
+    },
+    {
+      "item": "cod:FS04:assets/main-7c1e.js",
+      "motivo": "saudacao com o nome do paciente",
+      "expira_em": "2026-12-31"
+    }
+  ]
+}

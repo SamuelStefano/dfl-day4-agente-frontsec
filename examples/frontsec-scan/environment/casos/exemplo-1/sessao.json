@@ -1,0 +1,22 @@
+{
+  "host": "app.pipoca.example",
+  "passos": [
+    {
+      "passo": "login",
+      "caminho": "/entrar",
+      "momento": "2026-10-20T13:00:00Z",
+      "set_cookie": [
+        "sid=pp-7f3a91; Path=/; Secure; HttpOnly; SameSite=Lax",
+        "tema=claro; Path=/"
+      ]
+    },
+    {
+      "passo": "logout",
+      "caminho": "/sair",
+      "momento": "2026-10-20T13:20:00Z",
+      "set_cookie": [
+        "sid=; Path=/; Max-Age=0"
+      ]
+    }
+  ]
+}

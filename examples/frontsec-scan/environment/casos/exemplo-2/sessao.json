@@ -1,0 +1,24 @@
+{
+  "host": "loja.atelieboavista.example",
+  "passos": [
+    {
+      "passo": "login",
+      "caminho": "/api/login",
+      "momento": "2026-10-20T14:00:00Z",
+      "set_cookie": [
+        "sessao=ab-51c7e2; Secure; HttpOnly; SameSite=Strict",
+        "carrinho_token=ct-9921; Path=/; Secure; SameSite=Lax; Max-Age=2592000",
+        "idioma=pt-BR; Domain=.atelieboavista.example; Path=/; Secure"
+      ]
+    },
+    {
+      "passo": "logout",
+      "caminho": "/api/logout",
+      "momento": "2026-10-20T14:40:00Z",
+      "set_cookie": [
+        "sessao=; Path=/; Max-Age=0",
+        "carrinho_token=; Path=/; Max-Age=0"
+      ]
+    }
+  ]
+}

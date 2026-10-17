@@ -1,0 +1,5 @@
+{
+  "Content-Security-Policy": "default-src 'self'; connect-src 'self' https://api.pipoca.example",
+  "Strict-Transport-Security": "max-age=63072000; includeSubDomains",
+  "X-Content-Type-Options": "nosniff"
+}

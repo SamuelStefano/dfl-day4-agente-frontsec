@@ -1,0 +1,10 @@
+{
+  "data_auditoria": "2026-10-20",
+  "excecoes": [
+    {
+      "item": "cod:FS08:index.html",
+      "motivo": "link do WhatsApp sai no redesign de dezembro",
+      "expira_em": "2026-12-31"
+    }
+  ]
+}

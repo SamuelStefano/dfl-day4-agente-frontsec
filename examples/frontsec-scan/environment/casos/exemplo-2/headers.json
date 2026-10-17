@@ -1,0 +1,5 @@
+{
+  "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.pagafacil.example",
+  "Strict-Transport-Security": "max-age=31536000",
+  "X-Frame-Options": "DENY"
+}

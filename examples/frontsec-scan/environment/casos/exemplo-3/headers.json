@@ -1,0 +1,4 @@
+{
+  "content-security-policy": "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src *",
+  "strict-transport-security": "max-age=15552000; includeSubDomains"
+}

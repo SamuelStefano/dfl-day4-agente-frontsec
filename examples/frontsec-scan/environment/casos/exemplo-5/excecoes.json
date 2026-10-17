@@ -1,0 +1,35 @@
+{
+  "data_auditoria": "2026-10-21",
+  "excecoes": [
+    {
+      "item": "cod:FS04:assets/vendor/editor-55aa.js",
+      "motivo": "XSS do editor de terceiros",
+      "expira_em": "2026-12-31"
+    },
+    {
+      "item": "dep:player-video@2.0.0",
+      "motivo": "troca de player no proximo semestre",
+      "expira_em": "2027-02-28"
+    },
+    {
+      "item": "dep:formatador@2.2.0",
+      "motivo": "so roda nos testes e no servidor local",
+      "expira_em": "2026-11-15"
+    },
+    {
+      "item": "cookie:aviso_saida@app.ipe.example/",
+      "motivo": "cookie so de mensagem",
+      "expira_em": "2026-12-31"
+    },
+    {
+      "item": "hdr:FS10",
+      "motivo": "HSTS de 1 ano entra com o dominio novo",
+      "expira_em": "2026-10-20"
+    },
+    {
+      "item": "cod:FS08:index.html",
+      "motivo": "links de parceiros revisados na semana que vem",
+      "expira_em": "2026-10-21"
+    }
+  ]
+}

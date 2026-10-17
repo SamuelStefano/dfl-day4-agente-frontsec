@@ -1,0 +1,36 @@
+{
+  "name": "pipoca-delivery",
+  "lockfileVersion": 3,
+  "packages": {
+    "": {
+      "name": "pipoca-delivery",
+      "version": "1.0.0",
+      "dependencies": {
+        "roteador-leve": "^2.3.0",
+        "datas-br": "^1.4.2"
+      },
+      "devDependencies": {
+        "empacotador": "^5.0.1"
+      }
+    },
+    "node_modules/compressor-js": {
+      "version": "1.2.0",
+      "license": "MIT"
+    },
+    "node_modules/datas-br": {
+      "version": "1.4.2",
+      "license": "MIT"
+    },
+    "node_modules/empacotador": {
+      "version": "5.0.1",
+      "license": "MIT",
+      "dependencies": {
+        "compressor-js": "^1.2.0"
+      }
+    },
+    "node_modules/roteador-leve": {
+      "version": "2.3.0",
+      "license": "MIT"
+    }
+  }
+}

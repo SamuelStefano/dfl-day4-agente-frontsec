@@ -1,0 +1,31 @@
+{
+  "versoes": {
+    "parser-url": [
+      "1.1.0",
+      "1.2.0",
+      "1.3.0"
+    ],
+    "qr-gerador": [
+      "2.5.2",
+      "2.5.3",
+      "3.0.1",
+      "3.0.4"
+    ]
+  },
+  "avisos": [
+    {
+      "id": "AVF-2026-0401",
+      "pacote": "parser-url",
+      "faixa": ">=1.0.0 <1.2.0",
+      "severidade": "media",
+      "titulo": "URL com @ engana a checagem de dominio"
+    },
+    {
+      "id": "AVF-2026-0402",
+      "pacote": "qr-gerador",
+      "faixa": "<2.5.3 || >=3.0.0 <3.0.4",
+      "severidade": "critica",
+      "titulo": "texto do QR executa script na pagina"
+    }
+  ]
+}

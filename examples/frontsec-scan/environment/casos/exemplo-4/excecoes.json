@@ -1,0 +1,20 @@
+{
+  "data_auditoria": "2026-10-21",
+  "excecoes": [
+    {
+      "item": "cookie:ultima_oferta@ofertas.mercadinho.example/",
+      "motivo": "guarda so o numero da oferta",
+      "expira_em": "2026-11-30"
+    },
+    {
+      "item": "dep:qr-gerador@3.0.1",
+      "motivo": "atualizacao depois da Black Friday",
+      "expira_em": "2026-12-15"
+    },
+    {
+      "item": "hdr:FS10",
+      "motivo": "HSTS entra com o novo CDN",
+      "expira_em": "2026-10-01"
+    }
+  ]
+}

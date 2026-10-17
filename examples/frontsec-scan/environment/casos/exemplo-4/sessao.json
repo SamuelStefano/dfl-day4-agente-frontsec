@@ -1,0 +1,24 @@
+{
+  "host": "ofertas.mercadinho.example",
+  "passos": [
+    {
+      "passo": "login",
+      "caminho": "/entrar",
+      "momento": "2026-10-21T12:00:00Z",
+      "set_cookie": [
+        "refresh_jwt=rj-77; Path=/; secure; httponly; SameSite=Strict; Expires=Wed, 28 Oct 2026 12:00:00 GMT",
+        "sessao_id=si-42; Path=/; Secure; HttpOnly; SameSite=none; Expires=Thu, 29 Oct 2026 12:00:00 GMT",
+        "ultima_oferta=123; Path=/"
+      ]
+    },
+    {
+      "passo": "logout",
+      "caminho": "/sair",
+      "momento": "2026-10-21T12:30:00Z",
+      "set_cookie": [
+        "refresh_jwt=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT",
+        "sessao_id=; Path=/; Max-Age=0"
+      ]
+    }
+  ]
+}
